@@ -3,52 +3,63 @@
 <head>
     <title>Libby Maher</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", inital-scale=1>
+    <meta name="viewport" content="width=device-width", initial-scale=1>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
 <!-- Header -->
  <header>
-    <h1>Libby Maher</h1>
     <!-- Navigation -->
-     <nav>
-        <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-            <li>Project 4</li>
-            <li>Project 5</li>
-            <li>Project 6</li>            
+     <nav class="navbar">
+      <h1 class="name">Libby Maher</h1>
+
+      <!-- Hamburger Menu-->
+       <button class="navToggle" aria-label="toggle">
+         <span class="bar"></span>
+         <span class="bar"></span>
+         <span class="bar"></span>
+       </button>
+      
+      <!-- links -->
+        <ul class="navLinks">
+            <li><a href="project1.html">Project 1</a></li>
+            <li><a href="project2.html">Project 2</a></li>
+            <li><a href="project3.html">Project 3</a></li>
+            <li><a href="project4.html">Project 4</a></li>
+            <li><a href="project5.html">Project 5</a></li>
+            <li><a href="project6.html">Project 6</a></li>         
         </ul>
      </nav>   
  </header>
 
 <!-- Main -->
- <section>
+ <section class="main">
     <header>
         <h2>This is my work in progress portfolio which will eventually show my projects and skills.</h2>
         <p>Programming Languages: Python, C, HTML, CSS, JavaScript <br> Extras: Godot, SQL, Github</p>
     </header>
 
     <!-- Project tiles -->
-     <article>
-        <a href="project1.html"><img src="assets/box1.jpg" alt="link1"> </a>
-     </article>
-     <article>
-        <a href="project2.html"><img src="assets/box2.jpg" alt="link1"> </a>        
-     </article>
-     <article>
-        <a href="project3.html"><img src="assets/box3.jpg" alt="link1"> </a>        
-     </article>
-     <article>
-        <a href="project4.html"><img src="assets/box4.jpg" alt="link1"> </a>        
-     </article>
-     <article>
-        <a href="project5.html"><img src="assets/box1.jpg" alt="link1"> </a>        
-     </article>
-     <article>
-        <a href="project6.html"><img src="assets/box2.jpg" alt="link1"> </a>        
-     </article>
+     <div class="tiles">
+         <article>
+            <a href="project1.html"><img src="assets/box1.jpg" alt="link1"> </a>
+         </article>
+         <article>
+            <a href="project2.html"><img src="assets/box2.jpg" alt="link1"> </a>        
+         </article>
+         <article>
+            <a href="project3.html"><img src="assets/box3.jpg" alt="link1"> </a>        
+         </article>
+         <article>
+            <a href="project4.html"><img src="assets/box4.jpg" alt="link1"> </a>        
+         </article>
+         <article>
+            <a href="project5.html"><img src="assets/box1.jpg" alt="link1"> </a>        
+         </article>
+         <article>
+            <a href="project6.html"><img src="assets/box2.jpg" alt="link1"> </a>        
+         </article>
+     </div>
  </section>
 
  <footer>
@@ -59,5 +70,7 @@
 
  </footer>
 
+<!-- Scripts -->
+ <script src="assets/main.js" ></script>
 </body>
 </html>

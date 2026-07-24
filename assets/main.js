@@ -1,9 +1,6 @@
-function menuButton(){
-    var x = document.getElementById("links");
-    if (x.style.display === "block"){
-        x.style.display = "none";
-    }
-    else{
-        x.style.display = "block";
-    }
-}
+const toggleButton = document.querySelector('.navToggle');
+const navigationLinks = document.querySelector('.navLinks');
+
+toggleButton.addEventListener('click', () => {
+  navigationLinks.classList.toggle('active');
+});
