@@ -1,136 +1,413 @@
-/* overall */
-body{
-    font-family: Arial, Helvetica, sans-serif;
+/* ==========================================================================
+   TOKENS
+   ========================================================================== */
+:root {
+    --bg: #10131a;
+    --surface: #171c26;
+    --surface-hover: #1e2531;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #eceae4;
+    --text-muted: #8d96a6;
+    --accent: #e3b341;   /* amber, like a syntax keyword */
+    --accent-2: #7dd3c0;  /* soft teal, secondary accent */
+    --radius: 10px;
+    --transition-fast: 0.2s ease-in-out;
+    --transition-slow: 0.4s ease-in-out;
+}
+
+/* ==========================================================================
+   OVERALL
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
     padding: 0;
+    margin: 0;
+    line-height: 1.5;
+}
+
+a {
+    color: inherit;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* ==========================================================================
+   NAVIGATION
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--surface);
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    position: relative;
+    z-index: 10;
+}
+
+.name {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--text);
+    letter-spacing: -0.01em;
+}
+
+.navLinks {
+    display: none;
+    position: absolute;
+    list-style: none;
+    gap: 0;
+    margin: 0;
+    flex-direction: column;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--surface);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.navLinks a {
+    display: block;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.navLinks a:hover,
+.navLinks a:focus-visible {
+    color: var(--accent-2);
+}
+
+.navLinks a.active {
+    color: var(--accent);
+}
+
+.navToggle {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.navToggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--text);
+    border-radius: 2px;
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.navLinks.active {
+    display: flex;
+}
+
+.navLinks li {
+    text-align: center;
+    padding: 0.75rem 0;
+}
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+    padding: 3rem 1.5rem 2.5rem;
+    text-align: center;
+    max-width: 46em;
+    margin: 0 auto;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 0.9rem;
+}
+
+.hero h2 {
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 0 2rem;
+}
+
+.stackGroup {
+    margin-bottom: 1.25rem;
+}
+
+.stackLabel {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+}
+
+.stackList {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+}
+
+.stackList li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.35rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+/* ==========================================================================
+   PROJECT TILES
+   ========================================================================== */
+.tiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 1rem 2rem 3rem;
+    max-width: 120em;
+    margin: 0 auto;
+}
+
+.tiles article {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius);
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    transform: scale(1);
+    transition: transform var(--transition-slow), box-shadow var(--transition-slow);
+    will-change: transform;
+}
+
+.tiles article a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.tiles article img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transform: scale(1);
+    transition: transform var(--transition-slow), opacity var(--transition-slow);
+}
+
+
+.tileOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(16, 19, 26, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    transition: background-color var(--transition-slow);
+}
+
+.tileText {
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.tileText h3 {
+    font-size: 1.4rem;
     margin: 0;
 }
 
-/* navigation bar */
-    .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 2rem;
-        background-color: #333;
-        color: #fff;
-        position: relative;
-    }
+.moreInfo {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    color: var(--accent-2);
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(10px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow), max-height var(--transition-slow);
+}
 
-    .navLinks {
-        display: none;
-        position: absolute;
-        list-style: none;
+/* Expands the whole tile and raises it above its neighbors */
+.tiles article:hover,
+.tiles article:focus-within {
+    transform: scale(1.08);
+    z-index: 5;
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.45);
+    border-color: var(--accent-2);
+}
+
+.tiles article:hover img,
+.tiles article:focus-within img {
+    transform: scale(1.12);
+    opacity: 0.45;
+}
+
+.tiles article:hover .tileOverlay,
+.tiles article:focus-within .tileOverlay {
+    background-color: rgba(16, 19, 26, 0.85);
+}
+
+.tiles article:hover .moreInfo,
+.tiles article:focus-within .moreInfo {
+    opacity: 1;
+    max-height: 80px;
+    transform: translateY(0);
+    margin-top: 0.5rem;
+}
+
+/* ==========================================================================
+   FOOTER / CONTACT
+   ========================================================================== */
+footer {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    border-top: 1px solid var(--border);
+}
+
+footer h2 {
+    margin: 0 0 0.5rem;
+}
+
+footer p {
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+}
+
+.contactLinks {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.contactLinks a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.5rem 0.9rem;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.contactLinks svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+.contactLinks a:hover,
+.contactLinks a:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 900px) {
+    .tiles {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .tiles {
+        max-width: 25em;
+        grid-template-columns: 1fr;
         gap: 1.5rem;
-        margin: 0;
-        padding: 0;
+        padding: 1rem 1.5rem 2.5rem;
+    }
+
+    .tiles article:hover,
+    .tiles article:focus-within {
+        transform: scale(1.04); /* smaller lift on narrow screens so tiles don't clip the viewport edge */
+    }
+
+    .contactLinks {
         flex-direction: column;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        padding: 1rem 0;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        
+        align-items: center;
     }
+}
 
-    .navLinks a {
-        color: #fff;
-        text-decoration: none;
-    }
-
+@media (min-width: 769px) {
     .navToggle {
+        display: none;
+    }
+    .navLinks {
         display: flex;
-        flex-direction: column;
-        gap: 4px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 4px;
+        position: static;
+        flex-direction: row;
+        width: auto;
+        padding: 0;
+        gap: 1.5rem;
+        border-bottom: none;
+        box-shadow: none;
+        background-color: transparent;
     }
-
-    .navToggle .bar {
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        border-radius: 2px;
-    }
-
-    .navLinks.active {
-        display: flex; /* Shown when active class is added */
-    }
-
     .navLinks li {
-        text-align: center;
-        padding: 0.75rem 0;
+        padding: 0;
     }
+}
 
-/* main */
-
-    /* header */
-        .main header{
-            padding: 1rem;
-        }
-
-    /* Project tiles container */
-        .tiles {
-            display: grid;
-            /* Creates exactly 3 equal columns on large screens */
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 2rem;               /* Adds spacing between the tiles */
-            padding: 2rem;
-            max-width: 120em;       /* Keeps the 3x2 grid compact on huge monitors */
-            margin: 0 auto;          /* Centres the entire 3x2 block on the page */
-            box-sizing: border-box;
-        }
-
-    /* Individual tile items */
-        .tiles article {
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-    /* Make images fill their respective tile completely */
-        .tiles article img {
-            width: 100%;             /* Forces image to match the grid column width */
-            height: auto;            /* Keeps original image proportions */
-            display: block;          
-            border-radius: 8px;      
-        }
-
-    /* RESPONSIVE BREAKPOINTS */
-
-        /* Tablet view: changes to 2 columns (3 rows total) */
-            @media (max-width: 900px) {
-                .tiles {
-                    grid-template-columns: repeat(2, 1fr);
-                }
-            }
-
-        /* Mobile view: collapses to 1 column (6 rows total) */
-            @media (max-width: 600px) {
-                .tiles {
-                    max-width: 25em;
-                    grid-template-columns: 1fr;
-                    gap: 1.5rem;         /* Slightly tighter spacing on phones */
-                    padding: 1.5rem;
-                }
-            }
-        /* Make images fill their respective tile completely */
-            .tiles article img {
-                width: 100%;             
-                height: auto;            
-                display: block;          
-                /* Controls the speed and smoothness of the zoom effect */
-                transition: transform 0.3s ease-in-out; 
-            }
-
-        /* Hover Effect: Triggers when the mouse enters the article box */
-            .tiles article:hover img {
-                /* Zooms the image by 5% (1.05). Adjust this value to zoom more or less */
-                transform: scale(1.05); 
-            }
-
-/* footer */
-    footer{
-        padding: 1rem;
+/* ==========================================================================
+   MOTION PREFERENCES
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
     }
+    .tiles article:hover,
+    .tiles article:focus-within {
+        transform: none;
+    }
+    .tiles article:hover img,
+    .tiles article:focus-within img {
+        transform: none;
+    }
+}

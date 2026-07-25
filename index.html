@@ -1,76 +1,168 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Libby Maher</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width", initial-scale=1>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-<!-- Header -->
- <header>
-    <!-- Navigation -->
-     <nav class="navbar">
-      <h1 class="name">Libby Maher</h1>
-
-      <!-- Hamburger Menu-->
-       <button class="navToggle" aria-label="toggle">
-         <span class="bar"></span>
-         <span class="bar"></span>
-         <span class="bar"></span>
-       </button>
-      
-      <!-- links -->
-        <ul class="navLinks">
-            <li><a href="project1.html">Project 1</a></li>
-            <li><a href="project2.html">Project 2</a></li>
-            <li><a href="project3.html">Project 3</a></li>
-            <li><a href="project4.html">Project 4</a></li>
-            <li><a href="project5.html">Project 5</a></li>
-            <li><a href="project6.html">Project 6</a></li>         
-        </ul>
-     </nav>   
- </header>
-
-<!-- Main -->
- <section class="main">
+    <!-- Header -->
     <header>
-        <h2>This is my work in progress portfolio which will eventually show my projects and skills.</h2>
-        <p>Programming Languages: Python, C, HTML, CSS, JavaScript <br> Extras: Godot, SQL, Github</p>
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="index.html" class="name">Libby Maher</a>
+
+            <!-- Hamburger Menu -->
+            <button class="navToggle" aria-label="toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <!-- Links -->
+            <ul class="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="project1.html">Project 1</a></li>
+                <li><a href="project2.html">Project 2</a></li>
+                <li><a href="project3.html">Project 3</a></li>
+                <li><a href="project4.html">Project 4</a></li>
+                <li><a href="project5.html">Project 5</a></li>
+                <li><a href="project6.html">Project 6</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <!-- Project tiles -->
-     <div class="tiles">
-         <article>
-            <a href="project1.html"><img src="assets/box1.jpg" alt="link1"> </a>
-         </article>
-         <article>
-            <a href="project2.html"><img src="assets/box2.jpg" alt="link1"> </a>        
-         </article>
-         <article>
-            <a href="project3.html"><img src="assets/box3.jpg" alt="link1"> </a>        
-         </article>
-         <article>
-            <a href="project4.html"><img src="assets/box4.jpg" alt="link1"> </a>        
-         </article>
-         <article>
-            <a href="project5.html"><img src="assets/box1.jpg" alt="link1"> </a>        
-         </article>
-         <article>
-            <a href="project6.html"><img src="assets/box2.jpg" alt="link1"> </a>        
-         </article>
-     </div>
- </section>
+    <!-- Main -->
+    <main class="main">
+        <header class="hero">
+            <span class="eyebrow">Work in progress</span>
+            <h2>This is my work in progress portfolio which will eventually show my projects and skills.</h2>
 
- <footer>
-    <section>
-        <h2>Get in touch</h2>
-        <p>info to be added</p>
-    </section>
+            <div class="stackGroup">
+                <span class="stackLabel">Programming Languages</span>
+                <ul class="stackList">
+                    <li>Python</li>
+                    <li>C</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                </ul>
+            </div>
+            <div class="stackGroup">
+                <span class="stackLabel">Extras</span>
+                <ul class="stackList">
+                    <li>Godot</li>
+                    <li>SQL</li>
+                    <li>Github</li>
+                </ul>
+            </div>
+        </header>
 
- </footer>
+        <!-- Project tiles -->
+        <div class="tiles">
+            <article>
+                <a href="project1.html">
+                    <img src="assets/box1.jpg" alt="Screenshot of Project 1">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 1</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="project2.html">
+                    <img src="assets/box2.jpg" alt="Screenshot of Project 2">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 2</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="project3.html">
+                    <img src="assets/box3.jpg" alt="Screenshot of Project 3">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 3</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="project4.html">
+                    <img src="assets/box4.jpg" alt="Screenshot of Project 4">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 4</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="project5.html">
+                    <img src="assets/box1.jpg" alt="Screenshot of Project 5">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 5</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+            <article>
+                <a href="project6.html">
+                    <img src="assets/box2.jpg" alt="Screenshot of Project 6">
+                    <div class="tileOverlay">
+                        <div class="tileText">
+                            <h3>Project 6</h3>
+                            <p class="moreInfo">Work in Progress</p>
+                        </div>
+                    </div>
+                </a>
+            </article>
+        </div>
+    </main>
 
-<!-- Scripts -->
- <script src="assets/main.js" ></script>
+    <footer>
+        <section>
+            <h2>Get in touch</h2>
+            <p>Feel free to reach out about my projects or opportunities.</p>
+            <ul class="contactLinks">
+                <li>
+                    <a href="mailto:youremail@example.com">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A2.5 2.5 0 0 1 4.5 3h15A2.5 2.5 0 0 1 22 5.5v13a2.5 2.5 0 0 1-2.5 2.5h-15A2.5 2.5 0 0 1 2 18.5v-13Zm2.2.5 7.34 6.1a.75.75 0 0 0 .92 0L19.8 6H4.2ZM20 7.6l-6.8 5.66a2.75 2.75 0 0 1-3.4 0L4 7.6V18.5c0 .28.22.5.5.5h15a.5.5 0 0 0 .5-.5V7.6Z"/></svg>
+                        <span>Email</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://github.com/your-username" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.5c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.99 1.03-2.68-.1-.26-.45-1.28.1-2.66 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.66.64.69 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+                        <span>GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/your-username" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3 9.75h4v11H3v-11Zm7 0h3.8v1.5h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.55 4.78 5.86v6.59h-4v-5.84c0-1.39-.03-3.18-1.98-3.18-1.99 0-2.29 1.5-2.29 3.08v5.94h-4v-11Z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 </html>
